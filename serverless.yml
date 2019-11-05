@@ -1,0 +1,39 @@
+# Welcome to serverless. Read the docs
+# https://serverless.com/framework/docs/
+
+service: serverless-message
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-central-1
+  apiKeys:
+      - name: firstKey
+        value: JNJSNKMKDMKSMKMDKMDK
+  environment:
+    SENDGRID_API_KEY: Your API Key
+    MESSAGE_TO: Your Email Address
+    MESSAGE_FROM: Your Website Email Address
+  usagePlan:
+    quota:
+      limit: 5000
+      offset: 2
+      period: MONTH
+    throttle:
+      burstLimit: 20
+      rateLimit: 10
+
+functions:
+  sendMessage:
+    handler: handler.sendMessage
+    events:
+      - http:
+          path: send-message
+          method: post
+          cors: true
+          private: true
+
+plugins:
+  - serverless-offline
+
+
