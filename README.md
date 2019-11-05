@@ -19,17 +19,15 @@ Then run after cloning this repository:
 npm install
 ```
 
-## Offline Testing
+Set the environmental variables in *serverless.yml* according to your values.
 
-Run:
+## Offline Testing
 
 ```bash
 sls offline
 ```
 
 ## Deploy
-
-Run:
 
 ```bash
 sls deploy
@@ -50,3 +48,7 @@ If internal server error occurs, run before deploy:
 ```bash
 chmod -R +r node_modules/
 ```
+
+## License
+
+MIT
