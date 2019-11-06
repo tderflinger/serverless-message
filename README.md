@@ -1,6 +1,8 @@
 # serverless-message
 
-This is the example application for my blog article.
+This is the example application for my blog article. You can find the article here:
+
+* https://www.tderflinger.com/en/serverless-website-messaging
 
 It uses the Serverless framework to build a serverless function. The function
 sends an email to the configured email address with the customer contact information.
