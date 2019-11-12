@@ -1,6 +1,7 @@
 "use strict";
 
 const sgMail = require("@sendgrid/mail");
+const escapeHtml = require("escape-html");
 
 function sendEmail(data) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -9,7 +10,9 @@ function sendEmail(data) {
     from: process.env.MESSAGE_FROM,
     subject: "New Message from Website",
     text: `Message from ${data.name} - ${data.email}: ${data.message}`,
-    html: `<strong>Message from ${data.name} - ${data.email}: ${data.message}</strong>`
+    html: `<strong>Message from ${escapeHtml(data.name)} - ${escapeHtml(
+      data.email
+    )}: ${escapeHtml(data.message)}</strong>`
   };
   sgMail.send(msg);
 }

@@ -5,15 +5,15 @@ service: serverless-message
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs10.x
   region: eu-central-1
   apiKeys:
-      - name: firstKey
-        value: JNJSNKMKDMKSMKMDKMDK
-  environment:
-    SENDGRID_API_KEY: Your API Key
-    MESSAGE_TO: Your Email Address
-    MESSAGE_FROM: Your Website Email Address
+    - name: firstKeyMessage
+      value: 9KJSDHSBHABHS78OFGJJHHJJKKL8
+  environment: #You need to provide these environment variables
+    SENDGRID_API_KEY: ${env:SENDGRID_API_KEY}
+    MESSAGE_TO: ${env:MESSAGE_TO} # email address to which the email is sent to
+    MESSAGE_FROM: ${env:MESSAGE_FROM} # from email address
   usagePlan:
     quota:
       limit: 5000
@@ -35,5 +35,3 @@ functions:
 
 plugins:
   - serverless-offline
-
-
